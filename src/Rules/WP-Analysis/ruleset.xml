@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<ruleset name="WP-Analysis">
+    <description>The most important sniffs for WordPress plugins and themes.</description>
+
+    <!-- Check all PHP files in directory tree by default. -->
+    <arg name="extensions" value="php"/>
+    <file>.</file>
+
+    <!-- Show progress and sniff codes in all reports -->
+    <arg value="s"/>
+
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+
+    <!-- Verify compatibility with PHP 5.6+ -->
+    <rule ref="PHPCompatibility" />
+    <config name="testVersion" value="5.6-"/>
+
+    <!-- Remove rules that aren't really important. -->
+    <rule ref="WordPress-Extra">
+        <exclude name="Generic.Formatting" />
+        <exclude name="Generic.ControlStructures" />
+        <exclude name="Generic.Files.EndFileNewline" />
+        <exclude name="Generic.Files.LineEndings" />
+        <exclude name="Generic.Files.OneObjectStructurePerFile" />
+        <exclude name="Generic.WhiteSpace" />
+
+        <exclude name="Squiz.ControlStructures" />
+        <exclude name="Squiz.PHP.DisallowMultipleAssignments" />
+        <exclude name="Squiz.PHP.EmbeddedPhp.ContentAfterEnd" />
+        <exclude name="Squiz.PHP.EmbeddedPhp.ContentBeforeOpen" />
+        <exclude name="Squiz.PHP.EmbeddedPhp.NoSemicolon" />
+        <exclude name="Squiz.PHP.EmbeddedPhp.SpacingBeforeClose" />
+        <exclude name="Squiz.Strings.ConcatenationSpacing" />
+        <exclude name="Squiz.Strings.DoubleQuoteUsage" />
+        <exclude name="Squiz.WhiteSpace" />
+
+        <exclude name="PEAR.Files.IncludingFile.BracketsNotRequired" />
+        <exclude name="PEAR.Functions.FunctionCallSignature" />
+
+        <exclude name="PSR2.Classes" />
+        <exclude name="PSR2.ControlStructures" />
+
+        <exclude name="WordPress.Arrays" />
+        <exclude name="WordPress.Classes.ClassInstantiation" />
+        <exclude name="WordPress.Files.FileName" />
+        <exclude name="WordPress.NamingConventions" />
+        <exclude name="WordPress.WP.AlternativeFunctions.json_encode_json_encode" />
+        <exclude name="WordPress.WP.AlternativeFunctions.parse_url_parse_url" />
+        <exclude name="WordPress.WP.AlternativeFunctions.strip_tags_strip_tags" />
+        <exclude name="WordPress.WP.I18n" />
+        <exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict" />
+        <exclude name="WordPress.Security.NonceVerification.DeprecatedWhitelistCommentFound" />
+        <exclude name="WordPress.WhiteSpace" />
+        <exclude name="WordPress.PHP.YodaConditions" />
+    </rule>
+
+    <rule ref="WordPress.DateTime.RestrictedFunctions.date_date">
+        <type>warning</type>
+        <severity>4</severity>
+    </rule>
+
+    <rule ref="WordPress.DateTime.CurrentTimeTimestamp">
+        <severity>4</severity>
+    </rule>
+
+    <rule ref="WordPress.CodeAnalysis.AssignmentInCondition">
+        <severity>4</severity>
+    </rule>
+
+    <rule ref="WordPress.PHP.DevelopmentFunctions">
+        <severity>4</severity>
+    </rule>
+
+    <rule ref="Squiz.PHP.CommentedOutCode">
+        <severity>4</severity>
+    </rule>
+
+    <rule ref="PEAR.Files.IncludingFile.UseRequireOnce">
+        <severity>4</severity>
+    </rule>
+
+    <rule ref="WordPress.WP.EnqueuedResourceParameters.MissingVersion">
+        <type>warning</type>
+        <severity>5</severity>
+    </rule>
+
+    <rule ref="WordPress.WP.EnqueuedResourceParameters.NotInFooter">
+        <severity>5</severity>
+    </rule>
+
+    <rule ref="Generic.PHP.ForbiddenFunctions.FoundWithAlternative">
+        <type>warning</type>
+        <severity>4</severity>
+    </rule>
+</ruleset>

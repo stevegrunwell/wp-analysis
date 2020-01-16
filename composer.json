@@ -1,0 +1,28 @@
+{
+    "name": "stevegrunwell/wp-analysis",
+    "description": "Quickly analyze WordPress themes and plugins for potential security, compatibility, and/or performance issues.",
+    "type": "phpcodesniffer-standard",
+    "authors": [
+        {
+            "name": "Steve Grunwell",
+            "homepage": "https://stevegrunwell.com"
+        }
+    ],
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "require": {
+        "dealerdirect/phpcodesniffer-composer-installer": "*",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "wp-coding-standards/wpcs": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "SteveGrunwell\\WPAnalysis\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    }
+}
