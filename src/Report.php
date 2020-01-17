@@ -30,10 +30,10 @@ class Report implements ReportInterface
      * and FALSE if it ignored the file. Returning TRUE indicates that the file and
      * its data should be counted in the grand totals.
      *
-     * @param array                 $report      Prepared report data.
-     * @param \PHP_CodeSniffer\File $phpcsFile   The file being reported on.
-     * @param bool                  $showSources Show sources?
-     * @param int                   $width       Maximum allowed line width.
+     * @param array $report      Prepared report data.
+     * @param File  $phpcsFile   The file being reported on.
+     * @param bool  $showSources Show sources?
+     * @param int   $width       Maximum allowed line width.
      *
      * @return bool
      */
@@ -113,7 +113,7 @@ class Report implements ReportInterface
      * @param int    $line  The line number.
      * @param int    $col   The column number.
      */
-    protected function addViolation(string $sniff, string $file, int $line, int $col)
+    protected function addViolation(string $sniff, string $file, int $line, int $col): void
     {
         if (! isset($this->violations[$sniff])) {
             $this->violations[$sniff] = [];
